@@ -1,4 +1,4 @@
-Anatomy Grade Calculator (Unofficial)
+Anatomy Grade Calculator
 ============
 
 An unofficial grade calculator for Prof. Storm's USC Upstate Anatomy Class
