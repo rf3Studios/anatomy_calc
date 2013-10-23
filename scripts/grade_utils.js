@@ -105,11 +105,61 @@ function showGrade( finalGrade ) {
     $( "#total_letter_grade" ).html( convertToLetterGrade( finalGrade ) );
 
     // Highlight the grade scale
-    highlightGradeScale( finalGrade );
+    highlightGradeScale( convertToLetterGrade( finalGrade ) );
 }
 
-function highlightGradeScale( finalGrade ) {
+/**
+ * Highlights the appropriate grade scale which matches the letter grade using a color scale
+ *
+ * @param letterGrade
+ */
+function highlightGradeScale( letterGrade ) {
+    // Reset the styles
+    $( "dd" ).css( {"background-color":"#FFF", "font-weight":"normal"} );
 
+    var _match = "";
+    var _color = "";
+
+    // TODO Can this be improved?
+    // Set the new style
+    switch( letterGrade ) {
+        case "A":
+            _match = "89.50 - 100.0 = A";
+            _color = "#12D600"; // Bright Green
+            break;
+        case "B+":
+            _match = "88.50 - 89.49 = B+";
+            _color = "#68C91E"; // Green
+            break;
+        case "B":
+            _match = "79.50 - 88.49 = B";
+            _color = "#71C91E"; // Light Green
+            break;
+        case "C+":
+            _match = "78.50 - 79.49 = C+";
+            _color = "#9EC91E"; // Green Yellow
+            break;
+        case "C":
+            _match = "69.50 - 78.49 = C";
+            _color = "#D3DB44"; // Yellow
+            break;
+        case "D+":
+            _match = "68.50 - 69.49 = D+";
+            _color = "#DBC044"; // Dark Yellow
+            break;
+        case "D":
+            _match = "59.50 - 68.49 = D";
+            _color = "#DB9044"; // Reddish Orange
+            break;
+        default:
+            _match = "00.00 - 59.50 = F";
+            _color = "#DB4444"; // Red
+            break;
+    }
+
+    $( "dd" ).filter(function() {
+        return $( this ).text() === _match;
+    } ).css( {"background-color":_color, "font-weight":"bold"} );
 }
 
 /**
@@ -161,6 +211,7 @@ function getLectureQuizGrades() {
         _lecQuizVals[j] = parseFloat( $( items ).val() );
     } );
 
+    // TODO Create a way so that the base values can be manually entered from the form
     // Quiz base values
     var _lecQuizBaseVals = [10, 10, 10, 10, 10, 10, 12, 10, 10, 10, 10];
 
