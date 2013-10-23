@@ -5,13 +5,9 @@ html {
     line-height : 62.5%;
 }
 
-body, h3, legend {
+body, h3, legend, dt {
     line-height : 1.6rem;
     font-size   : 1.6rem;
-}
-
-h1, h2, h3, p {
-    margin : 8px;
 }
 
 h1 {
@@ -24,7 +20,7 @@ h2 {
     font-size   : 2.0rem;
 }
 
-legend {
+legend, dt {
     font-weight : bold;
 }
 
@@ -54,9 +50,17 @@ label {
     font-size   : 1.3rem;
 }
 
+dd {
+    font-family : Courier, monospace;
+}
+
 /* Layout */
 body {
     min-width : 1000px;
+}
+
+h1, h2, h3, p, dt {
+    margin : 8px;
 }
 
 body > h2 {
@@ -88,6 +92,18 @@ body > h2 {
     clear : right;
 }
 
+#info_output dl {
+    float         : right;
+    clear         : both;
+    margin-right  : 20px;
+    margin-bottom : 8px;
+}
+
+#info_output dl dt {
+    margin-left   : -25px;
+    margin-bottom : 4px;
+}
+
 #lec_wrapper fieldset, #lab_wrapper fieldset {
     background-color : #E4E4E4;
     padding          : 8px;
@@ -115,8 +131,8 @@ body > h2 {
 }
 
 #footer {
-    float : right;
-
+    float      : right;
+    text-align : right;
 }
 
 .info_icon {
@@ -134,5 +150,5 @@ body > h2 {
 }
 
 .ui-spinner {
-    width: 65px;
+    width : 65px;
 }

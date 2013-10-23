@@ -36,10 +36,10 @@
         <meta name="description"
               content="Anatomy Grade Calculator for students in Professor Storm's USC Upstate Anatomy class">
         <meta name="author" content="Rich Friedel">
-        <title>Anatomy Grade Calculator (Unofficial)</title>
+        <title>Anatomy Grade Calculator</title>
     </head>
     <body>
-        <h1>Anatomy Grade Calculator (Unofficial)</h1>
+        <h1>Anatomy Grade Calculator</h1>
 
         <h2>An unofficial grade calculator for Prof. Storm's USC Upstate Anatomy Class</h2>
 
@@ -165,12 +165,25 @@
             </div>
         </form>
         <div id="info_output">
+            <dl>
+                <dt>Grading Scale -</dt>
+                <dd>89.50 - 100.0 = A</dd>
+                <dd>88.50 - 89.49 = B+</dd>
+                <dd>79.50 - 88.49 = B</dd>
+                <dd>78.50 - 79.49 = C+</dd>
+                <dd>69.50 - 78.49 = C</dd>
+                <dd>68.50 - 69.49 = D+</dd>
+                <dd>59.50 - 68.49 = D</dd>
+                <dd>00.00 - 59.50 = F</dd>
+            </dl>
             <h3>Grade Information<img src="images/dialog_information.png" title="Information" width="22" height="22"
                                       class="info_icon"></h3>
 
             <p>Your Grade Total: <span id="total_num_grade">0</span></p>
 
             <p>Letter Grade: <span id="total_letter_grade">F</span></p>
+
+
         </div>
         <div id="footer">
             <p><strong>Anatomy Grade Calculator</strong> &copy;2013
@@ -178,6 +191,9 @@
                 <a href="LICENSE" target="_blank" title="MIT License">MIT License</a> using
                 <a href="http://jquery.com/" target="_blank" title="Uses jQuery">jQuery</a>
             </p>
+
+            <p>Source Code Available On <a href="https://github.com/rf3Studios/anatomy_calc" target="_blank"
+                                           title="GitHub">GitHub</a></p>
         </div>
     </body>
 </html>
