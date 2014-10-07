@@ -1,3 +1,11 @@
+/*!
+ * Anatomy Grade Calculator
+ * https://github.com/rf3Studios/anatomy_calc_web
+ *
+ * Copyright 2013, 2014 Rich Friedel
+ * Released under the MIT license
+ */
+
 /* Typography */
 html {
     font-family : Arial, Helvetica, sans-serif;
@@ -37,12 +45,12 @@ label {
 #footer p a {
     text-decoration : none;
     font-weight     : bold;
-    color           : #6596EF;
+    color           : #6596ef;
 }
 
 #footer p a:hover {
-    color            : #2F4F4F;
-    background-color : #C5DAE4;
+    color            : #2f4f4f;
+    background-color : #c5dae4;
 }
 
 .ui-spinner, .info_tooltip {
@@ -70,7 +78,7 @@ body > h2 {
 #lec_wrapper, #lab_wrapper, #info_output {
     width         : 48%;
     margin        : 4px;
-    border        : 1px solid #CCCCCC;
+    border        : 1px solid #cccccc;
     border-radius : 10px;
     padding       : 4px;
     min-width     : 450px;
@@ -105,17 +113,17 @@ body > h2 {
 }
 
 #lec_wrapper fieldset, #lab_wrapper fieldset {
-    background-color : #E4E4E4;
+    background-color : #e4e4e4;
     padding          : 8px;
     margin           : auto auto 24px;
-    border           : 2px solid #CCCCCC;
+    border           : 2px solid #cccccc;
     border-radius    : 0 25px 0 25px;
     max-width        : 600px;
 }
 
 #lec_wrapper fieldset legend, #lab_wrapper fieldset legend {
-    background-color : #FEFEFE;
-    border           : 1px solid #DDDDDD;
+    background-color : #fefefe;
+    border           : 1px solid #dddddd;
     box-shadow       : 3px 3px 5px rgba(50, 50, 50, 0.25);
     float            : left;
     clear            : both;

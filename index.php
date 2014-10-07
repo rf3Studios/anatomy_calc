@@ -1,25 +1,10 @@
 <?php
-/**
- * The MIT License (MIT)
+/*!
+ * Anatomy Grade Calculator
+ * https://github.com/rf3Studios/anatomy_calc_web
  *
- * Copyright (c) 2013 rf3Studios.com <Rich Friedel>
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of
- * this software and associated documentation files (the "Software"), to deal in
- * the Software without restriction, including without limitation the rights to
- * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
- * the Software, and to permit persons to whom the Software is furnished to do so,
- * subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ * Copyright 2013, 2014 Rich Friedel
+ * Released under the MIT license
  */
 ?>
 <!DOCTYPE html>
@@ -30,6 +15,7 @@
         <link type="text/css" rel="stylesheet" href="styles/main_styles.css">
         <script type="text/javascript" src="scripts/jquery-1.9.1.js"></script>
         <script type="text/javascript" src="scripts/jquery-ui-1.10.3.custom.js"></script>
+        <script type="text/javascript" src="scripts/jquery.cookie.js"></script>
         <script type="text/javascript" src="scripts/grade_utils.js"></script>
         <script type="text/javascript" src="scripts/lecture.js"></script>
         <script type="text/javascript" src="scripts/lab.js"></script>
@@ -43,10 +29,12 @@
 
         <h2>An unofficial grade calculator for Prof. Storm's USC Upstate Anatomy Class</h2>
 
+        <div id="alert" class="error"></div>
+
         <form id="grades_input_form" name="grades_input_form" action="" method="post">
             <div id="lec_wrapper">
-                <!-- Lecture -->
-                <h2>Lecture</h2>
+                    <!-- Lecture -->
+                    <h2>Lecture</h2>
 
                 <fieldset id="lec_exams_wrapper">
                     <!-- Exam Input -->
