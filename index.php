@@ -174,7 +174,7 @@
 
         </div>
         <div id="footer">
-            <p><strong>Anatomy Grade Calculator</strong> &copy;2013
+            <p><strong>Anatomy Grade Calculator</strong> &copy;2013-<?php echo date("Y") ?>
                 <a href="http://rf3studios.com" target="_blank" title="rf3Studios.com">rf3Studios.com</a> under
                 <a href="LICENSE" target="_blank" title="MIT License">MIT License</a> using
                 <a href="http://jquery.com/" target="_blank" title="Uses jQuery">jQuery</a>
