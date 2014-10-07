@@ -25,6 +25,7 @@ function buildNumberSpinners() {
             if ($(this).spinner("value") > 100) {
                 $(this).css("background-color", "#FF9494");
             } else {
+                $(this).css("background-color", "#FFFFFF");
                 showGrade(generateFinalGrade());
                 $.cookie($(this).attr("id"), $(this).spinner("value"), {expires: 365});
             }
@@ -48,6 +49,7 @@ function buildNumberSpinners() {
             if ($(this).spinner("value") > 10) {
                 $(this).css("background-color", "#FF9494");
             } else {
+                $(this).css("background-color", "#FFFFFF");
                 showGrade(generateFinalGrade());
                 $.cookie($(this).attr("id"), $(this).spinner("value"), {expires: 365});
             }
@@ -67,6 +69,7 @@ function buildNumberSpinners() {
             if ($(this).spinner("value") > 100) {
                 $(this).css("background-color", "#FF9494");
             } else {
+                $(this).css("background-color", "#FFFFFF");
                 showGrade(generateFinalGrade());
                 $.cookie($(this).attr("id"), $(this).spinner("value"), {expires: 365});
             }
