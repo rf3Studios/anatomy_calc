@@ -21,10 +21,13 @@ function buildNumberSpinners() {
         create: function () {
             $(this).spinner("value", $.cookie($(this).attr("id")));
         },
-        stop: function () {
-            $(this).spinner();
-            showGrade(generateFinalGrade());
-            $.cookie($(this).attr("id"), $(this).spinner("value"), {expires: 365});
+        stop: function (event, ui) {
+            if ($(this).spinner("value") > 100) {
+                $(this).css("background-color", "#FF9494");
+            } else {
+                showGrade(generateFinalGrade());
+                $.cookie($(this).attr("id"), $(this).spinner("value"), {expires: 365});
+            }
         }
     });
 
@@ -42,9 +45,12 @@ function buildNumberSpinners() {
             }
         },
         stop: function () {
-            $(this).spinner();
-            showGrade(generateFinalGrade());
-            $.cookie($(this).attr("id"), $(this).spinner("value"), {expires: 365});
+            if ($(this).spinner("value") > 10) {
+                $(this).css("background-color", "#FF9494");
+            } else {
+                showGrade(generateFinalGrade());
+                $.cookie($(this).attr("id"), $(this).spinner("value"), {expires: 365});
+            }
         }
     });
 
@@ -58,9 +64,12 @@ function buildNumberSpinners() {
             $("#lab_participation").spinner("value", $.cookie('lab_participation'));
         },
         stop: function () {
-            $(this).spinner();
-            showGrade(generateFinalGrade());
-            $.cookie($(this).attr("id"), $(this).spinner("value"), {expires: 365});
+            if ($(this).spinner("value") > 100) {
+                $(this).css("background-color", "#FF9494");
+            } else {
+                showGrade(generateFinalGrade());
+                $.cookie($(this).attr("id"), $(this).spinner("value"), {expires: 365});
+            }
         }
     });
 
