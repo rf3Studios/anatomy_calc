@@ -7,52 +7,46 @@
  */
 
 /**
- * Init all scripts on page ready...
- */
-$(document).ready(function () {
-    buildNumberSpinners();
-    buildInfoTooltips();
-    showGrade(generateFinalGrade());
-});
-
-
-/**
  * Builds and initializes the number spinners
  *
  * Note: I would like to have used the HTML5 input attribute "number" but Firefox does not support it (Oct/2013)
  */
 function buildNumberSpinners() {
     // Exam Spinners
-    $("input[name*='lec_exam_'], input[name*='lab_exam_'], #lec_final_exam, #lab_final_exam").spinner({
+    $("input[name*='_exam']").spinner({
         min: 0,
         max: 100,
         step: 0.01,
         numberFormat: "n",
+        create: function () {
+            $(this).spinner("value", $.cookie($(this).attr("id")));
+        },
         stop: function () {
             $(this).spinner();
             showGrade(generateFinalGrade());
+            $.cookie($(this).attr("id"), $(this).spinner("value"), {expires: 365});
         }
-    }).val(100);
+    });
 
     // Quiz Spinners
-    $("input[name*='lec_quiz']").spinner({
+    $("input[name*='_quiz_']").spinner({
         min: 0,
-        max: 10,
         step: 1,
+        create: function () {
+            if ($(this).attr("id") !== "lec_quiz_7") {
+                $(this).spinner("option", "max", 10);
+                $(this).spinner("value", $.cookie($(this).attr("id")));
+            } else {
+                $(this).spinner("option", "max", 12);
+                $(this).spinner("value", $.cookie($(this).attr("id")));
+            }
+        },
         stop: function () {
             $(this).spinner();
             showGrade(generateFinalGrade());
+            $.cookie($(this).attr("id"), $(this).spinner("value"), {expires: 365});
         }
-    }).val(10);
-    $("#lec_quiz_7").spinner({
-        min: 0,
-        max: 12,
-        step: 1,
-        stop: function () {
-            $(this).spinner();
-            showGrade(generateFinalGrade());
-        }
-    }).val(12);
+    });
 
     // Participation Spinner
     $("#lab_participation").spinner({
@@ -60,21 +54,29 @@ function buildNumberSpinners() {
         max: 100,
         step: 0.01,
         numberFormat: "n",
+        create: function () {
+            $("#lab_participation").spinner("value", $.cookie('lab_participation'));
+        },
         stop: function () {
             $(this).spinner();
             showGrade(generateFinalGrade());
+            $.cookie($(this).attr("id"), $(this).spinner("value"), {expires: 365});
         }
-    }).val(100);
+    });
 
     // Attendance Spinners
-    $("#lec_attendance, #lab_attendance").spinner({
+    $("input[name*='_attendance']").spinner({
         min: 0,
         step: 1,
+        create: function () {
+            $(this).spinner("value", $.cookie($(this).attr("id")));
+        },
         stop: function () {
             $(this).spinner();
             showGrade(generateFinalGrade());
+            $.cookie($(this).attr("id"), $(this).spinner("value"), {expires: 365});
         }
-    }).val(0);
+    });
 }
 
 /**
@@ -122,6 +124,97 @@ function buildInfoTooltips() {
         tooltipClass: "info_tooltip info_tooltip_grade_final",
         content: "<p><strong>Grade Information:</strong> The final grade total is calculated as follows...</p><p><strong>Lecture:</strong><br>((((Exam1 + Exam2 + Exam3 + Exam4) / 4) * 0.7) + (((Quiz Total / Total Possible) * 100) * 0.1) + (FinalExam * 0.2)) * 0.75</p><p><strong>+</strong></p><p><strong>Lab:</strong><br>(((((Practical1 + Practical2 + Practical3) / 3) * 0.6) + (Final Practical * 0.3) + (Participation * 0.1)) * 0.25) * (Days Missed * 0.02)</p>"
     });
+}
+
+/**
+ * Builds all the user cookies
+ */
+function buildUserCookies() {
+    // TODO: Need to simplify these
+    // Lecture Exams
+    if (typeof $.cookie('lec_exam_1') === 'undefined') {
+        $.cookie('lec_exam_1', 100, {expires: 365});
+    }
+    if (typeof $.cookie('lec_exam_2') === 'undefined') {
+        $.cookie('lec_exam_2', 100, {expires: 365});
+    }
+    if (typeof $.cookie('lec_exam_3') === 'undefined') {
+        $.cookie('lec_exam_3', 100, {expires: 365});
+    }
+    if (typeof $.cookie('lec_exam_4') === 'undefined') {
+        $.cookie('lec_exam_4', 100, {expires: 365});
+    }
+
+    // Lecture Final Exam
+    if (typeof $.cookie('lec_final_exam') === 'undefined') {
+        $.cookie('lec_final_exam', 100, {expires: 365});
+    }
+
+    // Lecture Quizzes
+    if (typeof $.cookie('lec_quiz_1') === 'undefined') {
+        $.cookie('lec_quiz_1', 10, {expires: 365});
+    }
+    if (typeof $.cookie('lec_quiz_2') === 'undefined') {
+        $.cookie('lec_quiz_2', 10, {expires: 365});
+    }
+    if (typeof $.cookie('lec_quiz_3') === 'undefined') {
+        $.cookie('lec_quiz_3', 10, {expires: 365});
+    }
+    if (typeof $.cookie('lec_quiz_4') === 'undefined') {
+        $.cookie('lec_quiz_4', 10, {expires: 365});
+    }
+    if (typeof $.cookie('lec_quiz_5') === 'undefined') {
+        $.cookie('lec_quiz_5', 10, {expires: 365});
+    }
+    if (typeof $.cookie('lec_quiz_6') === 'undefined') {
+        $.cookie('lec_quiz_6', 10, {expires: 365});
+    }
+    if (typeof $.cookie('lec_quiz_7') === 'undefined') {
+        $.cookie('lec_quiz_7', 12, {expires: 365});
+    }
+    if (typeof $.cookie('lec_quiz_8') === 'undefined') {
+        $.cookie('lec_quiz_8', 10, {expires: 365});
+    }
+    if (typeof $.cookie('lec_quiz_9') === 'undefined') {
+        $.cookie('lec_quiz_9', 10, {expires: 365});
+    }
+    if (typeof $.cookie('lec_quiz_10') === 'undefined') {
+        $.cookie('lec_quiz_10', 10, {expires: 365});
+    }
+    if (typeof $.cookie('lec_quiz_11') === 'undefined') {
+        $.cookie('lec_quiz_11', 10, {expires: 365});
+    }
+
+    // Lecture Attendance
+    if (typeof $.cookie('lec_attendance') === 'undefined') {
+        $.cookie('lec_attendance', 0, {expires: 365});
+    }
+
+    // Lab Exams
+    if (typeof $.cookie('lab_exam_1') === 'undefined') {
+        $.cookie('lab_exam_1', 100, {expires: 365});
+    }
+    if (typeof $.cookie('lab_exam_2') === 'undefined') {
+        $.cookie('lab_exam_2', 100, {expires: 365});
+    }
+    if (typeof $.cookie('lab_exam_3') === 'undefined') {
+        $.cookie('lab_exam_3', 100, {expires: 365});
+    }
+
+    // Lab Final Exam
+    if (typeof $.cookie('lab_final_exam') === 'undefined') {
+        $.cookie('lab_final_exam', 100, {expires: 365});
+    }
+
+    // Lab Participation
+    if (typeof $.cookie('lab_participation') === 'undefined') {
+        $.cookie('lab_participation', 100, {expires: 365});
+    }
+
+    // Lab Attendance
+    if (typeof $.cookie('lab_attendance') === 'undefined') {
+        $.cookie('lab_attendance', 0, {expires: 365});
+    }
 }
 
 /**
@@ -291,9 +384,8 @@ function generateFinalGrade() {
     if (_lecTotal === -1) {
         return 0;
     }
-    else {
-        return (_lecTotal + _labTotal).toFixed(8);
-    }
+
+    return (_lecTotal + _labTotal).toFixed(8);
 }
 
 /**

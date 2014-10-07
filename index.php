@@ -33,8 +33,8 @@
 
         <form id="grades_input_form" name="grades_input_form" action="" method="post">
             <div id="lec_wrapper">
-                    <!-- Lecture -->
-                    <h2>Lecture</h2>
+                <!-- Lecture -->
+                <h2>Lecture</h2>
 
                 <fieldset id="lec_exams_wrapper">
                     <!-- Exam Input -->
@@ -183,5 +183,14 @@
             <p>Source Code Available On <a href="https://github.com/rf3Studios/anatomy_calc" target="_blank"
                                            title="GitHub">GitHub</a></p>
         </div>
+        <script>
+            // Init all scripts on document ready...
+            $(document).ready(function () {
+                buildUserCookies();
+                buildNumberSpinners();
+                buildInfoTooltips();
+                showGrade(generateFinalGrade());
+            });
+        </script>
     </body>
 </html>
