@@ -185,6 +185,7 @@ const VERSION_URL = "https://github.com/rf3Studios/anatomy_calc_web/releases/tag
 
             <p>Source Code Available On <a href="https://github.com/rf3Studios/anatomy_calc" target="_blank"
                                            title="GitHub">GitHub</a></p>
+
             <p><?php echo "<a href=\"" . VERSION_URL . "\" target=\"_blank\" title=\"Version Release on GitHub\">v" . VERSION_NUMBER . "</a>" ?></p>
         </div>
         <script>

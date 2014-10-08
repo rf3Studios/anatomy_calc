@@ -21,7 +21,7 @@ function buildNumberSpinners() {
         create: function () {
             $(this).spinner("value", $.cookie($(this).attr("id")));
         },
-        stop: function (event, ui) {
+        stop: function () {
             if ($(this).spinner("value") > 100) {
                 $(this).css("background-color", "#FF9494");
             } else {
@@ -46,7 +46,7 @@ function buildNumberSpinners() {
             }
         },
         stop: function () {
-            if ($(this).spinner("value") > 10) {
+            if ($(this).attr("id") !== "lec_quiz_7" && $(this).spinner("value") > 10 || $(this).attr("id") === "lec_quiz_7" && $(this).spinner("value") > 12) {
                 $(this).css("background-color", "#FF9494");
             } else {
                 $(this).css("background-color", "#FFFFFF");
@@ -98,7 +98,7 @@ function buildInfoTooltips() {
     // Lecture Legend Tooltips
     $("#lec_exams_wrapper").find("legend img.info_icon").tooltip({
         tooltipClass: "info_tooltip",
-        content: "<p><strong>Lecture Exams:</strong> Enter exam grade percentages as numbers (e.g. 85% should be entered as 85)</p><p>Exam grade is calculated by taking the sum of all exams and dividing that total by the amount of exams.</p><p><strong>NOTE:</strong> If Exam 2 grade is larger than the Exam 1 grade, then the calculation will take the difference of Exam 2 - Exam 1, divide that by 2 and add that to the Exam 1 grade.</p><p>e.g. Exam 1 = ((Exam 2 - Exam 1) / 2) + Exam 1</p>"
+        content: "<p><strong>Lecture Exams:</strong> Enter exam grade percentages as numbers (e.g. 85% should be entered as 85)<br><br>Exam grade is calculated by taking the sum of all exams and dividing that total by the amount of exams.<br><br><strong>NOTE:</strong> If Exam 2 grade is larger than the Exam 1 grade, then the calculation will take the difference of Exam 2 - Exam 1, divide that by 2 and add that to the Exam 1 grade.<br><br>e.g. Exam 1 = ((Exam 2 - Exam 1) / 2) + Exam 1</p>"
     });
     $("#lec_final_exam_wrapper").find("legend img.info_icon").tooltip({
         tooltipClass: "info_tooltip",
@@ -106,17 +106,17 @@ function buildInfoTooltips() {
     });
     $("#lec_quizzes_wrapper").find("legend img.info_icon").tooltip({
         tooltipClass: "info_tooltip",
-        content: "<p><strong>Lecture Quizzes:</strong> Enter quiz grades. Quiz grade average is calculated as follows...</p><p>Quiz Avg = Sum of all quizzes / Total possible points</p><p><strong>NOTE:</strong> The lowest grade is not used while calculating the final quiz grade average.</p>"
+        content: "<p><strong>Lecture Quizzes:</strong> Enter quiz grades. Quiz grade average is calculated as follows...<br><br>Quiz Avg = Sum of all quizzes / Total possible points<br><br><strong>NOTE:</strong> The lowest grade is not used while calculating the final quiz grade average.</p>"
     });
     $("#lec_attendance_wrapper").find("legend img.info_icon").tooltip({
         tooltipClass: "info_tooltip",
-        content: "<p><strong>Lecture Attendance:</strong> Enter attendance as number of days missed.</p><p><strong>NOTE:</strong> <br>0-3 Days Missed: 0pts<br>4-7 Days Missed: 2pts/day<br>7+ Days Missed: &nbsp;Automatic Failure</p>"
+        content: "<p><strong>Lecture Attendance:</strong> Enter attendance as number of days missed.<br><br><strong>NOTE:</strong> <br>0-3 Days Missed: 0pts<br>4-7 Days Missed: 2pts/day<br>7+ Days Missed: &nbsp;Automatic Failure</p>"
     });
 
     // Lab Legend Tooltips
     $("#lab_exams_wrapper").find("legend img.info_icon").tooltip({
         tooltipClass: "info_tooltip",
-        content: "<p><strong>Lab Practicals:</strong> Enter practical grade percentages as numbers (e.g. 85% should be entered as 85)</p><p><strong>NOTE:</strong> Each exam is worth 20% of the total. <br><br>e.g. Total = (Practical 1 + Practical 2 + Practical 3) / 3</p>"
+        content: "<p><strong>Lab Practicals:</strong> Enter practical grade percentages as numbers (e.g. 85% should be entered as 85)<br><br><strong>NOTE:</strong> Each exam is worth 20% of the total. <br><br>e.g. Total = (Practical 1 + Practical 2 + Practical 3) / 3</p>"
     });
     $("#lab_final_exam_wrapper").find("legend img.info_icon").tooltip({
         tooltipClass: "info_tooltip",
@@ -128,13 +128,13 @@ function buildInfoTooltips() {
     });
     $("#lab_attendance_wrapper").find("legend img.info_icon").tooltip({
         tooltipClass: "info_tooltip",
-        content: "<p><strong>Lab Attendance:</strong>> Enter attendance as number of days missed.</p><p><strong>NOTE:</strong> For each day missed, the final lab grade is reduced by 2%</p><p>e.g. 2 days missed results in a 4% reduction</p>"
+        content: "<p><strong>Lab Attendance:</strong>> Enter attendance as number of days missed.<br><br><strong>NOTE:</strong> For each day missed, the final lab grade is reduced by 2%<br><br>e.g. 2 days missed results in a 4% reduction</p>"
     });
 
     // Grade Information
     $("#info_output").find("h3 img.info_icon").tooltip({
         tooltipClass: "info_tooltip info_tooltip_grade_final",
-        content: "<p><strong>Grade Information:</strong> The final grade total is calculated as follows...</p><p><strong>Lecture:</strong><br>((((Exam1 + Exam2 + Exam3 + Exam4) / 4) * 0.7) + (((Quiz Total / Total Possible) * 100) * 0.1) + (FinalExam * 0.2)) * 0.75</p><p><strong>+</strong></p><p><strong>Lab:</strong><br>(((((Practical1 + Practical2 + Practical3) / 3) * 0.6) + (Final Practical * 0.3) + (Participation * 0.1)) * 0.25) * (Days Missed * 0.02)</p>"
+        content: "<p><strong>Grade Information:</strong> The final grade total is calculated as follows...<br><br><strong>Lecture:</strong><br>((((Exam1 + Exam2 + Exam3 + Exam4) / 4) * 0.7) + (((Quiz Total / Total Possible) * 100) * 0.1) + (FinalExam * 0.2)) * 0.75<br><br><strong>+</strong><br><br><strong>Lab:</strong><br>(((((Practical1 + Practical2 + Practical3) / 3) * 0.6) + (Final Practical * 0.3) + (Participation * 0.1)) * 0.25) * (Days Missed * 0.02)</p>"
     });
 }
 
