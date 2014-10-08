@@ -455,3 +455,7 @@ function convertToLetterGrade(numGrade) {
         }
     }
 }
+
+$("#grades_input_form").on("submit", function () {
+    console.log($(this).serialize());
+});

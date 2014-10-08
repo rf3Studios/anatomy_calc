@@ -160,3 +160,9 @@ body > h2 {
 .ui-spinner {
     width : 65px;
 }
+
+#share_icon {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
