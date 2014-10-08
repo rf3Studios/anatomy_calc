@@ -12,6 +12,9 @@ A working version can be seen at [http://anatomy.rf3studios.com/](http://anatomy
 * jQuery Cookie - [https://github.com/carhartl/jquery-cookie](https://github.com/carhartl/jquery-cookie)
 * Share icon made by [Catalin Fertu](http://catalinfertu.com) from [www.flaticon.com](http://www.flaticon.com) and is licensed under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/)
     * Share icon modified by [Rich Friedel](http://rf3studios.com)
+* Reset icon made by [SimpleIcon](http://www.simpleicon.com) from [www.flaticon.com](http://www.flaticon.com) is licensed under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/)</div>
+    * Reset icon modified by [Rich Friedel](http://rf3studios.com)
+
 ## Author
 
 [Rich Friedel](http://rf3studios.com)
